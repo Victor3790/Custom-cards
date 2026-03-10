@@ -11,16 +11,8 @@ import { __ } from '@wordpress/i18n';
  *
  * @see https://developer.wordpress.org/block-editor/reference-guides/packages/packages-block-editor/#useblockprops
  */
-import { InspectorControls, RichText, useBlockProps } from '@wordpress/block-editor';
-import { PanelBody, TextControl } from '@wordpress/components';
+import { RichText, useBlockProps, InnerBlocks } from '@wordpress/block-editor';
 
-/**
- * Lets webpack process CSS, SASS or SCSS files referenced in JavaScript files.
- * Those files can contain any CSS code that gets applied to the editor.
- *
- * @see https://www.npmjs.com/package/@wordpress/scripts#using-css
- */
-import './editor.scss';
 
 /**
  * The edit function describes the structure of your block in the context of the
@@ -31,32 +23,33 @@ import './editor.scss';
  * @return {Element} Element to render.
  */
 export default function Edit({attributes, setAttributes}) {
+
+	const {title, bullet} = attributes;
+
 	return (
 		<>
-		<div { ...useBlockProps({className: 'service-card-block service-card-block--green-gradient'}) }>
-			<div className='service-card-block__content'>
-				<div>
+			<div { ...useBlockProps({className: "gobmx-card gobmx-card--rounded"}) }>
+				<div className="gobmx-card__title-container">
+					<RichText 
+						tagName="span" 
+						className="gobmx-card__bullet"
+						value={bullet}
+						onChange={(value) => setAttributes({bullet: value})} 
+					/>
 					<RichText 
 						tagName="h3" 
-						className='service-card-block__title'
-						value={attributes.title} 
+						className="gobmx-card__title"
+						value={title} 
 						onChange={(value) => setAttributes({title: value})} 
 					/>
-					<RichText 
-						tagName="p" 
-						className='service-card-block__text'
-						value={attributes.content} 
-						onChange={(value) => setAttributes({content: value})} 
+				</div>
+				<div className='gobmx-card__content'>
+					<InnerBlocks
+						allowedBlocks={['core/paragraph', 'core/list']}
+						templateInsertUpdatesSelection={true}
 					/>
 				</div>
-				<RichText 
-					tagName="a" 
-					className='service-card-block__link-text'
-					value={attributes.linkText} 
-					onChange={(value) => setAttributes({linkText: value})} 
-				/>
 			</div>
-		</div>
 		</>
 	);
 }

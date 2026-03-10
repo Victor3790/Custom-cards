@@ -5,55 +5,58 @@
  * Replace them with your own styles or remove the file completely.
  */
 
-.wp-block-create-block-custom-gob-card-block {
-	background-color: #21759b;
+.gobmx-card {
+	display: flex;
+	flex-direction: column;
+	min-width: 0;
+	padding: 16px 24px;
+	border:1px solid #ddd!important;
+	font-family: "Noto Sans", sans-serif!important;
+	background-color: #fff!important;
+}
+
+.gobmx-card--rounded { 
+	border-radius: 8px;
+}
+
+.gobmx-card__title-container {
+	display: flex;
+	margin-bottom: 16px!important;
+	padding-bottom: 16px;
+	align-items: center;
+	border-bottom:1px solid #ddd;
+}
+
+.gobmx-card__title {
+	font-size: 20px;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0!important;
+	margin-left: 16px;
+}
+
+.gobmx-card__bullet {
+	width: 24px;
+	height: 24px;
+	border-radius: 50%;
+	background-color: #66827F;
 	color: #fff;
-	padding: 2px;
-}
-
-.service-card-block {
-  display: flex;
-  flex-direction: row;
-  align-items: stretch;
-  //height: 100%;
-  min-height: 320px;
-  border-radius: 20px;
-  color: white;
-  position: relative;
-}
-
-.service-card-block--green-gradient {
-  background: linear-gradient(77deg, #396560 11.83%, #799491 89.92%);
-  color: white;
-}
-
-.service-card-block__content {
-  //flex: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  //z-index: 1;
-  padding: 2rem 4rem;
-}
-
-.service-card-block__title {
-  font-family: inherit;
-  font-size: 36px;
-  font-weight: 800;
-  margin-top: 12.5px;
-  margin-bottom: 5px!important;
-}
-
-.service-card-block__text {
-  font-size: 20px;
-  font-weight: 500;
-  margin: 0;
-}
-
-.service-card-block__link-text {
-	font-size: 18px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 14px;
 	font-weight: 600;
-	color: white;
-	text-decoration: underline;
-	margin-bottom: 12.5px;
+	flex-shrink: 0;
+
+}
+
+.gobmx-card__content {
+	font-size: 16px;
+	font-weight: 400;
+}
+
+@media (max-width: 768px) {
+  p {
+    text-align: left;
+  }
 }

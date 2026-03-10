@@ -1,34 +1,27 @@
 {
 	"$schema": "https://schemas.wp.org/trunk/block.json",
 	"apiVersion": 3,
-	"name": "create-block/custom-gob-card-block",
+	"name": "create-block/gobmx-card",
 	"version": "0.1.0",
-	"title": "Custom Gob Card Block",
+	"title": "Gobmx Card",
 	"category": "widgets",
-	"icon": "smiley",
-	"description": "Example block scaffolded with Create Block tool.",
+	"icon": "embed-generic",
+	"description": "Tarjeta de información con diseño Gobmx.",
 	"example": {},
 	"supports": {
 		"html": false
 	},
-	"textdomain": "custom-gob-card-block",
+	"textdomain": "gobmx-card",
 	"editorScript": "file:./index.js",
-	"editorStyle": "file:./index.css",
 	"style": "file:./style-index.css",
-	"render": "file:./render.php",
-	"viewScript": "file:./view.js",
 	"attributes": {
 		"title":{
-			"type":"string",
-			"default":"Titulo de servicio"
+			"type": "string",
+			"default": "Título de la tarjeta"
 		},
-		"content":{
-			"type":"string",
-			"default":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec euismod, nisl eget consectetur sagittis, nisl nunc."
-		},
-		"linkText":{
-			"type":"string",
-			"default":"Saber más"
+		"bullet":{
+			"type": "string",
+			"default": "1"
 		}
 	}
 }
